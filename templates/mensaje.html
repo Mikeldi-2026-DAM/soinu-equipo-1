@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block titulo %}Mensaje de {{ mensaje.autor }} {% endblock %}
+
+{% block contenido %}
+  <h1>{{ mensaje.autor }}, mensaje nº {{mensaje.id}}</h1>
+  <p>{{ mensaje.texto }}</p>
+  <p>{{mensaje.observaciones}}</p>
+  <p><a href="/">Volver al muro</a></p>
+{% endblock %}

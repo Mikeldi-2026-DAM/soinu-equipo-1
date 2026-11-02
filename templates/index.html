@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+  <h1>Muro de 2.º DAM</h1>
+
+    <form method="post" action="/">
+        <input name="autor" placeholder="Tu nombre" required>
+        <textarea name="texto" placeholder="Tu mensaje" required></textarea>
+        <textarea name="observaciones" placeholder="Tus observaciones"></textarea>
+        <button>Publicar</button>
+    </form>
+
+  {% if mensajes %}
+    <p>{{ mensajes|length }} mensajes</p>
+    <ul>
+      {% for m in mensajes|reverse %}
+        <li>    <a href="/mensajes/{{ m.id }}">
+                <b>{{ m.autor }}</b></a>: {{ m.texto }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Todavía no hay mensajes.</p>
+  {% endif %}
+{% endblock %}
